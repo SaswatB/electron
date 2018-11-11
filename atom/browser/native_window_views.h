@@ -205,6 +205,11 @@ class NativeWindowViews : public NativeWindow,
   // Register accelerators supported by the menu model.
   void RegisterAccelerators(AtomMenuModel* menu_model);
 
+#if defined(OS_LINUX)
+  // EventHandler:
+  void OnMouseEvent(ui::MouseEvent* event) override;
+#endif
+
   // Returns the restore state for the window.
   ui::WindowShowState GetRestoredState();
 
